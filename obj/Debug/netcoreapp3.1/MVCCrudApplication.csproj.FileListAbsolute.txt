@@ -152,3 +152,6 @@ D:\DOT NET REPOs\MVCCrudApplication\obj\Debug\netcoreapp3.1\Razor\Views\Emp\Crea
 D:\DOT NET REPOs\MVCCrudApplication\obj\Debug\netcoreapp3.1\Razor\Views\Emp\Edit.cshtml.g.cs
 D:\DOT NET REPOs\MVCCrudApplication\obj\Debug\netcoreapp3.1\Razor\Views\Emp\Details.cshtml.g.cs
 D:\DOT NET REPOs\MVCCrudApplication\obj\Debug\netcoreapp3.1\Razor\Views\Emp\Delete.cshtml.g.cs
+D:\DOT NET REPOs\MVCCrudApplication\bin\Debug\netcoreapp3.1\Humanizer.dll
+D:\DOT NET REPOs\MVCCrudApplication\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\DOT NET REPOs\MVCCrudApplication\obj\Debug\netcoreapp3.1\MVCCrudApplication.csproj.AssemblyReference.cache
