@@ -5,9 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using MVCCrudApplication.Models;
 using Microsoft.EntityFrameworkCore;
-
-
-
+using MVCCrudApplication.ViewModels;
+using System.IO;
 
 namespace MVCCrudApplication.Controllers
 {
@@ -33,16 +32,34 @@ namespace MVCCrudApplication.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> Create(NewEmpClass nec)
+        public async Task<IActionResult> Create(EmployeeCreateViewModel Emp)
         {
             if(ModelState.IsValid)
             {
-                _db.Add(nec);
+                string uniqueFileName = null;
+                if(Emp.Photo !=null)
+                {
+                    string UplaodFolder = @"D:\DOT NET REPOs\MVCCrudApplication\wwwroot\Image";
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + Emp.Photo.FileName;
+                    string FilePath = Path.Combine(UplaodFolder, uniqueFileName);
+                    Emp.Photo.CopyTo(new FileStream(FilePath, FileMode.Create));
+                }
+
+                NewEmpClass Em = new NewEmpClass
+                {
+                    EmpName = Emp.EmpName,
+                    Email = Emp.Email,
+                    Age = Emp.Age,
+                    Salary = Emp.Salary,
+                    Image = uniqueFileName
+                };
+
+                _db.Add(Em);
                 await _db.SaveChangesAsync();
                 return RedirectToAction("Index");
 
             }
-            return View(nec);
+            return View(Emp);
         }
 
 

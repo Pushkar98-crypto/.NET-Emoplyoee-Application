@@ -1,21 +1,20 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Http;
-using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MVCCrudApplication.Models
+namespace MVCCrudApplication.ViewModels
 {
-    public class NewEmpClass
+    public class EmployeeCreateViewModel
     {
-        [Key]
-        public int Empid { get; set; }
 
 
-        [Required(ErrorMessage ="Enter Employee Name")]
-        [Display (Name ="Employee Name")]
+        [Required(ErrorMessage = "Enter Employee Name")]
+        [Display(Name = "Employee Name")]
         public String EmpName { get; set; }
 
 
@@ -33,7 +32,7 @@ namespace MVCCrudApplication.Models
 
         [Required(ErrorMessage = "Enter Employee Age")]
         [Display(Name = "Employee Age")]
-        [Range(20,80)]
+        [Range(20, 80)]
 
         public int Age { get; set; }
 
@@ -41,9 +40,13 @@ namespace MVCCrudApplication.Models
         [Required(ErrorMessage = "Enter Salary")]
         [Display(Name = "Salary")]
         public int Salary { get; set; }
-        
 
-        
-        public string Image { get; set; }
+
+        //[Column(TypeName = "nvarchar(100)")]
+        //public  string ImageName { get; set; }
+
+        [NotMapped]
+        public IFormFile Photo { get; set; }
+
     }
 }

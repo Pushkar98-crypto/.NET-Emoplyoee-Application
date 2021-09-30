@@ -31,29 +31,35 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Empid)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmpName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salary)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.Empid  },new { @class= "btn btn-primary"}) |
-                @Html.ActionLink("Details", "Details", new { id=item.Empid }, new { @class="btn btn-success"}) |
-                @Html.ActionLink("Delete", "Delete", new {  id=item.Empid }, new { @class="btn btn-danger"})
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Empid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmpName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Empid }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Empid }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Empid }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

@@ -1,4 +1,4 @@
-﻿@model MVCCrudApplication.Models.NewEmpClass
+﻿@model MVCCrudApplication.ViewModels.EmployeeCreateViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -10,13 +10,13 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form  enctype ="multipart/form-data" asp-action="Create" a>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             @*<div class="form-group">
-                <label asp-for="Empid" class="control-label"></label>
-                <input asp-for="Empid" class="form-control" />
-                <span asp-validation-for="Empid" class="text-danger"></span>
-            </div>*@
+            <label asp-for="Empid" class="control-label"></label>
+            <input asp-for="Empid" class="form-control" />
+            <span asp-validation-for="Empid" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <label asp-for="EmpName" class="control-label"></label>
                 <input asp-for="EmpName" class="form-control" />
@@ -36,6 +36,13 @@
                 <label asp-for="Salary" class="control-label"></label>
                 <input asp-for="Salary" class="form-control" />
                 <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photo" class="control-label"></label>
+                <div  class="custom-file">
+                    <input asp-for="Photo" class="form-control custom-file-input" />
+                    <label class="custom-file-label">Choose File....</label>
+                </div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
